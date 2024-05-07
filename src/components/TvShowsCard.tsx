@@ -1,29 +1,50 @@
 
 import { useContext, useEffect, useState } from "react";
-import SingleMovie from "./SingleMovie";
+import SingleTvShow from "./SingleTVShow";
 import SearchBar from "./SearchBar";
 import {Context} from '../App'
+
+
+const api_url_search_tv = `https://api.themoviedb.org/3/search/tv?api_key=cbe3b0a2fe19035c9b98fbf6fce9680e&language=en-US&query=`;
+
+const api_url_tv = `https://api.themoviedb.org/3/discover/tv?api_key=cbe3b0a2fe19035c9b98fbf6fce9680e&sort_by=popularity.desc&page=1&with_original_language=en`;
 
 
 const api_url_search = `https://api.themoviedb.org/3/search/movie?api_key=cbe3b0a2fe19035c9b98fbf6fce9680e&language=en-US&query=`;
 
 const api_url = `https://api.themoviedb.org/3/discover/movie?api_key=cbe3b0a2fe19035c9b98fbf6fce9680e&sort_by=popularity.desc&page=1&with_original_language=en`;
-export default function MovieCard( { page, setPage }: { page: number, setPage: any }) {
 
+
+export default function TvShowsCard( { page, setPage }: { page: number, setPage: any }) {
+
+ 
   const [movies, setMovies] = useState<any>([]);
-  const [searchTerm, setSearchTerm] = useContext<any>(Context)
+  const { searchTerm, setSearchTerm, isMovie, setIsMovie } = useContext(Context);
   const [timer, setTimer] = useState<any>(null);
   const [searchTriggered, setSearchTriggered] = useState(false)
   const [lastSearchTerm, setLastSearchTerm] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
+console.log(isMovie);
+console.log('search termmmmmmmmmm: ',searchTerm);
 
 
 
   async function searchMovies(movie? :string) {
-    let url = api_url;
-    if (movie) {
-      url = `${api_url_search}${movie}&page=${page}`;
+
+    let url = isMovie ?  api_url : api_url_tv ;
+
+    if (movie  && !isMovie) {
+      url = `${api_url_search_tv}${movie}&page=${page}`;
+      console.log('searech  tv');
+      setIsMovie(false)
     }
+    if (movie && isMovie ) {
+      url = `${api_url_search}${movie}&page=${page}`;
+      console.log('searech  movie');
+      setIsMovie(true)
+    }
+   
+    //  movie ? url  = `${api_url_search}&query=${movie}` : url  = `${api_url_search_tv}&query=${movie}`;
     
     const res = await fetch(url);
     let data = await res.json();
@@ -67,7 +88,7 @@ export default function MovieCard( { page, setPage }: { page: number, setPage: a
       searchMovies(searchTerm);
       setSearchTriggered(true);
     }
-  }, [lastSearchTerm,searchTerm]);
+  }, [lastSearchTerm,searchTerm,isMovie]);
 
   // useEffect(() => {
   //   // const searchMovies = async (query) => {
@@ -180,8 +201,9 @@ return (
     {movies?.length > 0 ? (
       <div className="container">
         {movies.map((movie : any) => (
-          < SingleMovie key={movie.id} idd={movie.id}  movie = {movie}   />
-        ))}{" "}
+          
+          <SingleTvShow key={movie.id} idd={movie.id}  movie = {movie} isMovie={isMovie}  />
+        ))}
       </div>
     ) : (
       <div className="empty">
