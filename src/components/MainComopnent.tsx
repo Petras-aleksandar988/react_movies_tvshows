@@ -1,17 +1,13 @@
 import { useState,useContext } from "react";
 import {Context} from '../App'
-// import MovieCard from "./MovieCard";
 import TvShowsCard from "./TvShowsCard";
-
-
-
-
-
+import { usePageNumber } from "../store";
+import MoviesCard from "./MoviesCard";
 
 export default function MainComopnent() {
+const page1 =  usePageNumber ((state) => state.page)
+
   const {  isMovie, setIsMovie } = useContext(Context);
-const [page, setPage] = useState(1);
-  console.log('is movieeeeeeee', isMovie);
   
 const handleMovieButtonClick = () => {
     setIsMovie(true);
@@ -20,15 +16,17 @@ const handleMovieButtonClick = () => {
   const handleTvShowButtonClick = () => {
     setIsMovie(false);
   };
+
+  
   return (
     <>
-    
-    <h1>MovieLand</h1>
+     
+    <h1>Search your favorite Movies and TV Shows</h1>
     <div className="toggle-buttons">
-      <button onClick={handleMovieButtonClick}>Movies</button>
-      <button onClick={handleTvShowButtonClick}>TV Shows</button>
+      <button className={isMovie ? 'active' : ''}  onClick={handleMovieButtonClick}>Movies </button>
+      <button className={!isMovie ? 'active' : ''}  onClick={handleTvShowButtonClick}>TV Shows</button>
     </div>
-    { <TvShowsCard  page={page} setPage={setPage} />}
+    { isMovie ?   <MoviesCard/> : <TvShowsCard  /> }
     </>
   )
 }

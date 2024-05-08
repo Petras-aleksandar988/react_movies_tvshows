@@ -3,9 +3,7 @@
 import React, {  useState,createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import MovieCard from "./components/MovieCard";
 import Movie from './components/Movie';
-import TvShowsCard from "./components/TvShowsCard";
 import MainComopnent from "./components/MainComopnent";
 import TVShow from "./components/TVShow";
 
@@ -13,20 +11,34 @@ export const Context = createContext({
   searchTerm: "",
   setSearchTerm: (term: string) => {},
   isMovie: false,
-  setIsMovie: (isMovie: boolean) => {}
+  setIsMovie: (isMovie: boolean) => {},
+  pageShow: 1,
+  setPageShow: (term: number) => {},
+  pageMovie: 1,
+  setPageMovie: (term: number) => {},
+  // totalPages: 0,
+  // setTotalPages: (term: number) => {}
 });
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isMovie, setIsMovie] = useState(false);
-  const [page, setPage] = useState(1);
+  const [pageShow, setPageShow] = useState(1);
+  const [pageMovie, setPageMovie] = useState(1);
+  // const [totalPages, setTotalPages] = useState(0);
   
   // Provide context value as an object
   const contextValue = {
     searchTerm,
     setSearchTerm,
     isMovie,
-    setIsMovie
+    setIsMovie,
+    pageShow,
+    setPageShow,
+    pageMovie,
+    setPageMovie,
+    // totalPages, 
+    // setTotalPages
   };
   
   return (

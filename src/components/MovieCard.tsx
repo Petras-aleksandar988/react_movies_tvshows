@@ -156,9 +156,9 @@ return pageNumbers;
 const handleChange = (e: any) => {
   setSearchTerm(e.target.value);
   setLastSearchTerm(false);
-  // if (timer) {
-  //   clearTimeout(timer);
-  // }
+//   // if (timer) {
+//   //   clearTimeout(timer);
+//   // }
 };
 
 // Function to handle key up event
@@ -167,12 +167,9 @@ return (
   <div className="app">
 
     
-    <h1>MovieLand</h1>
+ 
     <div className="search">
-      <SearchBar 
-         placeholder="search for the movie"
-         value={searchTerm}
-         onChange={handleChange}
+      <SearchBar   onChange={handleChange}
       />
      
     </div>

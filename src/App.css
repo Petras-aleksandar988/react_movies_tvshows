@@ -39,3 +39,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.toggle-buttons button.active {
+  background-color: #007bff;
+  color: #fff;
+  /* Add any other styles you want for the active button */
+}
