@@ -1,49 +1,283 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: var(--font-roboto);
+  background-color: #212426;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  padding: 10px;
+
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+}
+
+.container-movie {
+  font-size: 16px;
+  padding-bottom: 5px;
+  width: 80%;
+  color: burlywood;
+}
+.search {
+  width: 71%;
+  margin: 20px 0 10px;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background: #1f2123;
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
 }
 
-.App-link {
-  color: #61dafb;
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 20px;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+
+  outline: none;
+  color: #a1a1a1;
+  background: #1f2123;
 }
-.active{
+
+.empty {
+  width: 100%;
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-top: 20px;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.active {
   background: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toggle-buttons {
+  display: flex;
+  gap: 10px;
 }
-
-
+.toggle-buttons button {
+  font-size: 24px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.toggle-buttons button:hover {
+  box-shadow: #64c463 4px 3px 4px;
+}
 
 .toggle-buttons button.active {
   background-color: #007bff;
   color: #fff;
-  /* Add any other styles you want for the active button */
+}
+
+.title {
+  font-size: 20px;
+  letter-spacing: 0.9px;
+  background: linear-gradient(
+    90deg,
+    rgba(249, 211, 180, 1) 0%,
+    rgb(216, 216, 99) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+}
+.app h1 {
+  font-size: 28px;
+  letter-spacing: 0.9px;
+  background: linear-gradient(
+    90deg,
+    rgba(249, 211, 180, 1) 0%,
+    rgb(216, 216, 99) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+  padding: 15px 0;
+}
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: start;
+  transition: opacity 0.3s ease;
+}
+.image-container {
+  width: 240px;
+  height: 355px;
+  border-radius: 20px 0 0 0;
+}
+
+.hover {
+  display: none;
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  margin: 0 auto;
+  font-size: 13px;
+  width: 73%;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.image-container:hover {
+  opacity: 0.3;
+}
+
+.main-container:hover .hover {
+  display: flex;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: beige;
+}
+
+.pagination {
+  margin: 20px auto;
+  gap: 20px;
+  max-width: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.pagination button {
+  min-width: fit-content;
+  max-width: 85px;
+  border-radius: 50px;
+  font-size: 17px;
+  color: #fff;
+  background-color: #56a655;
+  /* padding:0  10px; */
+}
+.pagination button.active {
+  background-color: #0074ff;
+}
+.pagination span {
+  color: #56a655;
+  font-size: 28px;
+}
+
+.search img {
+  width: 26px;
+  margin-right: 10px;
+}
+.movie {
+  width: 300px;
+  height: 450px;
+}
+.return-btn {
+  top: 12px;
+  left: 9px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.return-btn img {
+  width: 30px;
+}
+.single-movie {
+  margin: 40px;
+  color: wheat;
+  color: wihite;
+  width: 100%;
+  max-width: 500px;
+  flex-direction: column;
+  display: flex;
+  gap: 10px;
+}
+.img-single {
+  max-width: 300px;
+  max-height: 400px;
+  height: 100%;
+  width: 100%;
+}
+@media screen and (max-width: 850px) {
+  .movie {
+    width: 185px;
+    height: 380px;
+  }
+  .container-movie {
+    font-size: 14px;
+  }
+  .image-container {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    height: 70%;
+  }
+  .subtitle {
+    font-size: 16px;
+  }
+  .main-container:hover .hover {
+    display: none;
+  }
+  .image-container:hover {
+    opacity: 1;
+  }
+  .app h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .search {
+    width: 90%;
+    padding: 10px 15px;
+  }
+  .search input {
+    font-size: 16px;
+  }
+  .container {
+    gap: 35px;
+  }
+
+  .toggle-buttons button {
+    font-size: 16px;
+    width: 120px;
+  }
+  .single-movie {
+    margin: 55px auto;
+  }
+  .img-single {
+    width: 100%;
+    max-width: 300px;
+  }
 }
