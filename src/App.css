@@ -292,6 +292,7 @@ body {
   .img-single {
     width: 100%;
     max-width: 300px;
+    align-self: center;
   }
   .pagination{
     gap: 8px;
@@ -307,5 +308,15 @@ body {
 .search img {
 width: 16px;
 margin-right: 5px;
+}
+@media screen and (max-width: 465px) {
+
+  .movie{
+    width: 275px;
+    height: 550px;
+  }
+  .container{
+    gap: 0;
+  }
 }
 }
