@@ -7,13 +7,14 @@ import { tvUrls } from "./ApiUrls";
 
 export default function TvShowsCard() {
   const { searchTerm, pageShow } = useContext(Context);
-
+ 
   const [tvShows, setTvShows] = useState<any>([]);
   const [searchTriggered, setSearchTriggered] = useState(false);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
 
   async function searchTVShows(tvShow = "") {
+    // define right url for axios depending on search input lenght
     const url =
       tvShow.length < 3
         ? tvUrls.top_10_tv_shows
@@ -37,7 +38,7 @@ export default function TvShowsCard() {
       setIsLoading(false);
     }
   }
-
+// The main useEffect is triggered by changes in the searchTerm state, which is shared across multiple components via useContext. It determines whether an Axios request will be triggered, based on the length of the searchTerm
   useEffect(() => {
     if (searchTerm.length < 3) {
       searchTVShows("");
@@ -50,11 +51,11 @@ export default function TvShowsCard() {
         searchTVShows(searchTerm);
         setSearchTriggered(true);
       }
-    }, 1500);
+    }, 1000);
 
     return () => clearTimeout(debounceFetch);
   }, [searchTerm]);
-
+ 
   useEffect(() => {
     searchTVShows(searchTerm);
   }, [pageShow]);
@@ -88,7 +89,7 @@ export default function TvShowsCard() {
 
         </div>
       )}
-
+ 
       {searchTriggered && tvShows?.length > 0 && totalPages >= 2 && (
         <ShowPagaination totalPages={totalPages} />
       )}

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function TVShow() {
+  // useNavigate to return in previous page
   const history = useNavigate();
 
   const [show, setShow] = useState<any>(null);
@@ -11,6 +12,7 @@ export default function TVShow() {
   useEffect(() => {
     async function show() {
       try {
+        // axios req to specific id tv show
         const response = await axios.get(
           `https://api.themoviedb.org/3/tv/${id}?api_key=cbe3b0a2fe19035c9b98fbf6fce9680e&language=en-US`
         );

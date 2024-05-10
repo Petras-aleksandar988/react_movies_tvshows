@@ -5,6 +5,7 @@ import MainComopnent from "./components/MainComopnent";
 import Movie from "./components/Movie";
 import TVShow from "./components/TVShow";
 
+// create Context so states can be used in other components(TvShowsCard, MovieVards, SearchBar..)
 export const Context = createContext({
   searchTerm: "",
   setSearchTerm: (term: string) => {},
@@ -42,7 +43,7 @@ function App() {
 
             <Route path="/movie/:id" element={<Movie />} />
             <Route path="/show/:id" element={<TVShow />} />
-            {/* Add more routes if needed */}
+    
           </Routes>
         </Router>
       </Context.Provider>

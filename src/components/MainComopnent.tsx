@@ -13,7 +13,7 @@ export default function MainComopnent() {
     setPageShow,
     setPageMovie,
   } = useContext(Context);
-
+ 
   const handleMovieButtonClick = () => {
     setIsMovie(true);
   };
@@ -21,6 +21,8 @@ export default function MainComopnent() {
   const handleTvShowButtonClick = () => {
     setIsMovie(false);
   };
+
+  // A callback is needed so that the Search Bar does not re-render every time the user changes tabs between TV shows and movies. this is sent like prop inside SearchBar component
   const handleChange = useCallback((e: any) => {
     setSearchTerm(e.target?.value);
     setPageMovie(1);

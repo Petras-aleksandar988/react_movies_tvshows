@@ -9,6 +9,7 @@ interface Show {
 }
 export default function SingleTVShow({ show }: { show: Show }) {
   return (
+    // A link that receives a dynamic URL parameter and renders the right page with the TV Show component 
     <Link to={`/show/${show.id}`}>
       <div className="main-container">
         <img

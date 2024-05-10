@@ -1,46 +1,19 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+1. Top 10 TV Shows: The homepage displays the top 10  TV shows, allowing users to easily browse through popular options. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Detailed View: Users can select any TV show from the list to view detailed information including the synopsis, cast, rating, and reviews.
 
-### `npm run build`
+3. Search Functionality: The app features a search box prominently displayed at the top. If a user types 3 or more characters and pauses for one second, the app will instantly display filtered results. If no matches are found, a message indicating the absence of results will be displayed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Switching Tabs: Users can seamlessly switch between the "TV Shows" and "Movies" tabs. If the search box contains fewer than 3 characters, the top 10 results for the selected tab will be presented. If the search box contains 3 or more characters, filtered results will be displayed instantly for both tabs.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Pagination: If filtered results span multiple pages, pagination will be presented at the bottom. For instance, if a user is on the 3rd page of TV shows and clicks on a show to view details, upon returning (either using the browser or a dedicated "back to home" button), they will remain on the 3rd page. If user Switch tab to Movies  and return to TV shows tab without typing anything new inside serach bar they will remain on the 3rd page. If the user switches tabs and performs a new search, filtered results will be displayed with pagination reset to page 1.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. Consistent Page Navigation: Regardless of tab switches or detailed views, the app ensures that users remain on the same page they were on previously.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
