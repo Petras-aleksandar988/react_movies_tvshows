@@ -13,7 +13,7 @@ export default function TvShowsCard() {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  async function searchTVShows(tvShow = "") {
+  async function searchTVShows(tvShow :any ) {
     // define right url for axios depending on search input lenght
     const url =
       tvShow.length < 3

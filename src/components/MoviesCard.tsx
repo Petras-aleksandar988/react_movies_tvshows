@@ -16,7 +16,7 @@ export default function MoviesCard() {
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  async function searchMovies(movie = "") {
+  async function searchMovies(movie :any) {
     const url =
       movie.length < 3
         ? movieUrls.top_10_movies
