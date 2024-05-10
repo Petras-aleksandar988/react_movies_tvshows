@@ -19,7 +19,7 @@ body {
 
 .app {
   padding: 10px;
-
+ width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,6 +57,7 @@ body {
   outline: none;
   color: #a1a1a1;
   background: #1f2123;
+  max-width: 100%;
 }
 
 .empty {
@@ -86,6 +87,7 @@ body {
 .toggle-buttons {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .toggle-buttons button {
   font-size: 24px;
@@ -179,12 +181,12 @@ body {
   justify-content: center;
 }
 .pagination button {
-  min-width: fit-content;
-  max-width: 85px;
+  width: 35px;
   border-radius: 50px;
-  font-size: 17px;
+  font-size: 20px;
   color: #fff;
   background-color: #56a655;
+  cursor: pointer;
   /* padding:0  10px; */
 }
 .pagination button.active {
@@ -231,6 +233,16 @@ body {
   height: 100%;
   width: 100%;
 }
+.pagination button.previous-next-btn{
+  background-color: transparent;
+  color: #56a655;
+  font-size: 26px;
+}
+.pagination button.previous-next-btn[disabled]{
+  opacity: 0.5;
+  color: #fff;
+  font-size: 22px;
+}
 @media screen and (max-width: 850px) {
   .movie {
     width: 185px;
@@ -253,6 +265,7 @@ body {
   }
   .image-container:hover {
     opacity: 1;
+    box-shadow: #56a655 4px 3px 3px;
   }
   .app h1 {
     font-size: 20px;
@@ -280,4 +293,19 @@ body {
     width: 100%;
     max-width: 300px;
   }
+  .pagination{
+    gap: 8px;
+  }
+  .pagination button{
+  width: 26px ;
+  font-size: 14px;
+
+  }
+  .pagination span{
+    font-size: 20px;
+  }
+.search img {
+width: 16px;
+margin-right: 5px;
+}
 }

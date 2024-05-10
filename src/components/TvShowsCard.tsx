@@ -60,6 +60,8 @@ export default function TvShowsCard() {
   }, [pageShow]);
 
   return (
+    <>
+    
     <div className="app">
       {tvShows?.length > 0 && searchTerm.length < 3 ? (
         <div className="title">
@@ -78,11 +80,12 @@ export default function TvShowsCard() {
       {isLoading && <h1>loading....</h1>}
       {tvShows?.length > 0 && (
         <div className="container">
-          {tvShows.map((tvshow: any) => (
-            <div className="movie">
-              <SingleTVShow key={tvshow.id} show={tvshow} />
+          {tvShows.map((tvshow: any) => 
+            <div className="movie" key={tvshow.id}>
+              <SingleTVShow  show={tvshow} />
             </div>
-          ))}
+          )} 
+
         </div>
       )}
 
@@ -90,5 +93,8 @@ export default function TvShowsCard() {
         <ShowPagaination totalPages={totalPages} />
       )}
     </div>
+    </>
+
   );
+
 }

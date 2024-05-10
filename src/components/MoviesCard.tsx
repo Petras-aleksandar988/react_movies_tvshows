@@ -79,11 +79,11 @@ export default function MoviesCard() {
       {isLoading && <h1>loading....</h1>}
       {movies?.length > 0 && (
         <div className="container">
-          {movies.map((movie: any) => (
-            <div className="movie">
-              <SingleMovie key={movie.id} movie={movie} />
+          {movies.map((movie: any) => 
+            <div className="movie" key={movie.id}>
+              <SingleMovie  movie={movie} />
             </div>
-          ))}
+          )}
         </div>
       )}
 

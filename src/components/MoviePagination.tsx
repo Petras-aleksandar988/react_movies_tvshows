@@ -8,7 +8,7 @@ export default function ShowPagination({ totalPages }: TotalPages) {
   const { pageMovie, setPageMovie } = useContext(Context);
   function generatePageNumbers() {
     const pageNumbers = [];
-    const maxPageNumbers = 6; // Maximum number of page numbers to display around the active page
+    const maxPageNumbers = 4; // Maximum number of page numbers to display around the active page
     const startPage = Math.max(1, pageMovie - Math.floor(maxPageNumbers / 2));
     const endPage = Math.min(startPage + maxPageNumbers - 1, totalPages);
 
@@ -53,13 +53,13 @@ export default function ShowPagination({ totalPages }: TotalPages) {
 
   return (
     <div className="pagination">
-      <button
+      <button className='previous-next-btn'
         onClick={() => setPageMovie(pageMovie - 1)}
         disabled={pageMovie === 1}>
-        Previous
+         {'<'}
       </button>
       {generatePageNumbers()}
-      <button onClick={() => setPageMovie(pageMovie + 1)}>Next</button>
+      <button className='previous-next-btn' onClick={() => setPageMovie(pageMovie + 1)}> {'>'}</button>
     </div>
   );
 }

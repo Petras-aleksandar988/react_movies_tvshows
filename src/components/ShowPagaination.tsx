@@ -8,7 +8,7 @@ interface TotalPages {
     const { pageShow, setPageShow } = useContext(Context);
     function generatePageNumbers() {
         const pageNumbers = [];
-        const maxPageNumbers = 6;
+        const maxPageNumbers = 4;
         const startPage = Math.max(1, pageShow - Math.floor(maxPageNumbers / 2));
         const endPage = Math.min(startPage + maxPageNumbers - 1, totalPages);
     
@@ -53,13 +53,13 @@ interface TotalPages {
 
   return (
    <div className="pagination">
-          <button
+          <button className='previous-next-btn'
             onClick={() => setPageShow(pageShow - 1)}
             disabled={pageShow === 1}>
-            Previous
+            {'<'}
           </button>
           {generatePageNumbers()}
-          <button onClick={() => setPageShow(pageShow + 1)}>Next</button>
+          <button className='previous-next-btn' onClick={() => setPageShow(pageShow + 1)}  disabled={pageShow === totalPages}> {'>'}</button>
         </div>
   )
 }
