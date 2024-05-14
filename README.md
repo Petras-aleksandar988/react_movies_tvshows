@@ -2,6 +2,7 @@
 
 Runs the app in the development mode.
 
+Published: https://react-movies-tv-shows-app-aleksa.netlify.app/
 
 1. Top 10 TV Shows: The homepage displays the top 10  TV shows, allowing users to easily browse through popular options. 
 
